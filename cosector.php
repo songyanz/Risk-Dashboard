@@ -78,9 +78,8 @@
 	<head>
 		<title>Correlation</title>
 		<link href="css/style.css" type="text/css" rel="stylesheet">
-        <script type="text/javascript" src="incubator-echarts-4.2.1/dist/echarts.min.js"></script>
-		<script type="text/javascript" src="echarts-stat-master/dist/ecStat.js"></script>
-		<script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="js/echarts.min.js"></script>
+		<script type="text/javascript" src="js/ecStat.js"></script>
 		<script type="text/javascript" src="js/risk.js"></script>
 	</head>
 
