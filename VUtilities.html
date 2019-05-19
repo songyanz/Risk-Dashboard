@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Utilities</title>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="incubator-echarts-4.2.1/dist/echarts.min.js"></script>
+	<link href="css/style.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+	<div class="banner">
+		<div class="banner1">
+			<a href="index.html"><img src="images/carey.png" alt="can't display" title="Carey Business School" width="430px" height="100px" ></a>
+		</div>
+		<div class="banner2">
+			<div style="height: 50px;"></div>
+			<div class="banner3">
+				<nav>
+					<ul>
+						<li><a href="index.html">Home</a>
+						<li><a href="weight.html">Weight</a></li>
+						<li><a href="VTotal.html">History Volatility</a></li>
+						<li><a href="risk.html">Future Risk</a></li>
+						<li><a href="correlation.html">Correlation</a></li>
+					</ul>
+				</nav>
+			</div>	
+		</div>
+	</div>
+	<br>
+	<div>
+		<div style="width: 20%; height: 600px; float: left;">
+			<ul style="list-style: none;">
+				<li><input type="button" name="Total" value="TOTAL" onclick="window.location.href = 'VTotal.html'" style="width: 95%; color: #999; background: none; outline: none; font-size: 1em; padding: .7em 1em; margin-bottom: 0.1em; border: solid 1px #999; -webkit-appearance: none; display: inline-block; font-family: Arial;"></li>
+				<li><input type="button" name="Energy" value="ENERGY" onclick="window.location.href = 'VEnergy.html'" style="width: 95%; color: #999; background: none; outline: none; font-size: 1em; padding: .7em 1em; margin-bottom: 0.1em; border: solid 1px #999; -webkit-appearance: none; display: inline-block; font-family: Arial;"></li>
+				<li><input type="button" name="Financials" value="FINANCIALS" onclick="window.location.href = 'VFinancials.html'" style="width: 95%; color: #999; background: none; outline: none; font-size: 1em; padding: .7em 1em; margin-bottom: 0.1em; border: solid 1px #999; -webkit-appearance: none; display: inline-block; font-family: Arial;"></li>
+				<li><input type="button" name="Info_Tech" value="INFO TECH" onclick="window.location.href = 'VInfotech.html'" style="width: 95%; color: #999; background: none; outline: none; font-size: 1em; padding: .7em 1em; margin-bottom: 0.1em; border: solid 1px #999; -webkit-appearance: none; display: inline-block; font-family: Arial;"></li>
+				<li><input type="button" name="Industrials" value="INDUSTRIALS" onclick="window.location.href = 'VIndustrials.html'" style="width: 95%; color: #999; background: none; outline: none; font-size: 1em; padding: .7em 1em; margin-bottom: 0.1em; border: solid 1px #999; -webkit-appearance: none; display: inline-block; font-family: Arial;"></li>
+				<li><input type="button" name="Materials" value="MATERIALS" onclick="window.location.href = 'VMaterials.html'" style="width: 95%; color: #999; background: none; outline: none; font-size: 1em; padding: .7em 1em; margin-bottom: 0.1em; border: solid 1px #999; -webkit-appearance: none; display: inline-block; font-family: Arial;"></li>
+				<li><input type="button" name="Health_Care" value="HEALTH CARE" onclick="window.location.href = 'VHealthcare.html'" style="width: 95%; color: #999; background: none; outline: none; font-size: 1em; padding: .7em 1em; margin-bottom: 0.1em; border: solid 1px #999; -webkit-appearance: none; display: inline-block; font-family: Arial;"></li>
+				<li><input type="button" name="Cons_Discret" value="CONS DISCRET" onclick="window.location.href = 'VConsdiscret.html'" style="width: 95%; color: #999; background: none; outline: none; font-size: 1em; padding: .7em 1em; margin-bottom: 0.1em; border: solid 1px #999; -webkit-appearance: none; display: inline-block; font-family: Arial;"></li>
+				<li><input type="button" name="Comm_Svc" value="COMM SVC" onclick="window.location.href = 'VCommsvc.html'" style="width: 95%; color: #999; background: none; outline: none; font-size: 1em; padding: .7em 1em; margin-bottom: 0.1em; border: solid 1px #999; -webkit-appearance: none; display: inline-block; font-family: Arial;"></li>
+				<li><input type="button" name="Utilities" value="UTILITIES" onclick="" style="width: 95%; color: #999; background: none; outline: none; font-size: 1em; padding: .7em 1em; margin-bottom: 0.1em; border: solid 1px #999; -webkit-appearance: none; display: inline-block; font-family: Arial;"></li>
+				<li><input type="button" name="Real_Estate" value="REAL ESTATE" onclick="window.location.href = 'VRealestate.html'" style="width: 95%; color: #999; background: none; outline: none; font-size: 1em; padding: .7em 1em; margin-bottom: 0.1em; border: solid 1px #999; -webkit-appearance: none; display: inline-block; font-family: Arial;"></li>
+				<li><input type="button" name="Cons_Staples" value="CONS STAPLES" onclick="window.location.href = 'VConsstaples.html'" style="width: 95%; color: #999; background: none; outline: none; font-size: 1em; padding: .7em 1em; margin-bottom: 0.1em; border: solid 1px #999; -webkit-appearance: none; display: inline-block; font-family: Arial;"></li>	
+			</ul>
+		</div>
+		<div id="line" style="width: 80%; height:600px; margin: auto; display: block; float: right;"></div>
+	    <script type="text/javascript">
+	        var myChart = echarts.init(document.getElementById('line'));
+
+	        var option = {
+
+	        	title: {
+	        		text: 'Volatility',
+	        		subtext: 'Utilities',
+
+	    		},
+
+	            xAxis: {
+	        		type: 'category',
+	        		data: ['3/12','3/13','3/14','3/15','3/18','3/19','3/20','3/21','3/22','3/25','3/26','3/27','3/28','3/29','4/1','4/2','4/3','4/4','4/5','4/8','4/9','4/10','4/11']
+	    		},
+			    yAxis: {
+			        type: 'value'
+			    },
+			    series: [{
+			        data: [8.48,8.41,6.43,6.29,6.56,7.77,7.74,7.48,7.58,7.54,7.70,8.00,8.97,9.07,9.35,9.30,9.11,9.06,9.24,9.54,9.56,9.60,9.71],
+			        itemStyle: 
+			        {
+			        	normal: 
+			        	{
+			        		label: 
+			        		{
+			        			show: true
+			        		}
+			        	}
+			        },
+			        type: 'line'
+			    }]
+			};
+
+	        myChart.setOption(option);
+	    </script>
+	</div>
+</body>
+</html>

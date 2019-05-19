@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Risk</title>
+		<link href="css/style.css" type="text/css" rel="stylesheet">
+        <script type="text/javascript" src="incubator-echarts-4.2.1/dist/echarts.min.js"></script>
+		<script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="js/risk.js"></script>
+	</head>
+
+	<body>
+		<div class="banner">
+			<div class="banner1">
+				<a href="index.html"><img src="images/carey.png" alt="can't display" title="Carey Business School" width="430px" height="100px" ></a>
+			</div>
+            <div class="banner2">
+                <div style="height: 50px;"></div>
+                <div class="banner3">
+                    <nav>
+                        <ul>
+                            <li><a href="index.html">Home</a>
+                            <li><a href="weight.html">Weight</a></li>
+                            <li><a href="VTotal.html">History Volatility</a></li>
+                            <li><a href="risk.html">Future Risk</a></li>
+                            <li><a href="correlation.html">Correlation</a></li>
+                        </ul>
+                    </nav>
+                </div>  
+            </div>
+		</div>
+
+		<div class="risk-main">
+            <div class="risk-left">
+                
+            </div>
+            <div id="scatter" style="width: 85%; height:600px; margin: auto;"></div>
+            <div class="risk-right">
+                <form action="risk.php" method="post" name="risksel">
+                    <fieldset class="risklev" id="risklev">
+                        <h3>Your Interest and Risk Level</h3>
+                    	<br>
+                        <select name="sector" required="required">
+                            <option value="">Please Select The Sector</option>
+                            <option value="infotech">Information Technology</option>
+                            <option value="health">Health Care</option> 
+                            <option value="financials">Financials</option> 
+                            <option value="commsvc">Communication Service</option>
+                            <option value="consdiscret">Consumer Discretionary</option>
+                            <option value="industrials">Industrials</option>
+                            <option value="consstaples">Consumer Staples</option>
+                            <option value="energy">Energy</option>
+                            <option value="utilities">Utilities</option>
+                            <option value="realestate">Real Estate</option>
+                            <option value="materials">Materials</option>
+                        </select>
+
+                        <label style="float: left; width: 50%;"><input type="radio" name="select" value="price" checked="" onclick="check1();">Price</label>
+                        <label style="float: left; width: 50%;"><input type="radio" name="select" value="rate" onclick="check2();">Rate</label>
+
+                        <select name="period" id="period">
+                            <option value="">Please Select The Time Period</option>
+                            <option value="month">Month</option>
+                            <option value="week">Week</option> 
+                        </select>
+
+                        <input type="text" id="price" name="price" placeholder="Expected Price"><br/>
+                        <input type="text" id="rate" name="rate" placeholder="Increase Rate (%)" style="display: none;">
+						<div class="riskreset">
+                            <input type="reset" value="Reset" name="riskreset">
+                        </div>
+                        <div class="risksubmit">
+                            <input type="submit" value="Submit" name="risksubmit"><br/>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <!--<div id="scatter" style="width: 85%; height:600px; margin: auto;"></div>-->
+            <script type="text/javascript">
+                var dom = document.getElementById("scatter");
+                var myChart = echarts.init(dom);
+                var app = {};
+                var data = [[6.85, 15.11, 'Info Tech'],
+                            [0.10, 13.10, 'Health Care'],
+                            [4.96, 12.53, 'Cons Discret'],
+                            [0.86, 13.41, 'Industrials'],
+                            [2.1, 8.46, 'Cons Staples'],
+                            [-0.35, 16.86, 'Energy'],
+                            [-0.01, 15.92, 'Financials'],
+                            [3.86, 14.62, 'Materials'],
+                            [1.46, 9.11, 'Utilities'],
+                            [4.57, 9.51, 'Real Estate'],
+                            [3.77, 11.25, 'Comm Svc']
+                            ];
+                var option = null;
+                option = {
+                	title: {
+	        			text: 'Volatility - Return',
+	        			//subtext: 'Communication Services',
+		    		},
+                    xAxis: {
+                      name:"Monthly Return (%)"
+                    },
+                    yAxis: {
+                      name:"Volatility (%)"
+                    },
+                    series: [{
+                        symbolSize: 20,
+                        data: data,
+                        type: 'scatter',
+
+                        label: {
+                            emphasis: {
+                                show: true,
+                                formatter: function (param) {
+                                    return param.data[2];
+                                },
+                                position: 'top'
+                            }
+                        },
+                    }]
+                };
+                ;
+                if (option && typeof option === "object") {
+                    myChart.setOption(option, true);
+                }
+            </script>
+		<footer id="copyright" align="center">&copy: 2019 Carey</footer>
+	</body>
+</html>

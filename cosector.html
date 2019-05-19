@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Correlation</title>
+		<link href="css/style.css" type="text/css" rel="stylesheet">
+		<script type="text/javascript" src="/js/signValidation.js"></script>
+		<script type="text/javascript" src="/js/realtimecheck.js"></script>
+		<script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="/js/rem_pass.js"></script>
+		<script type="text/javascript" src="js/correlation.js"></script>
+	</head>
+
+	<body>
+		<div class="banner">
+			<div class="banner1">
+				<a href="index.html"><img src="images/carey.png" alt="can't display" title="Carey Business School" width="430px" height="100px" ></a>
+			</div>
+            <div class="banner2">
+                <div style="height: 50px;"></div>
+                <div class="banner3">
+                    <nav>
+                        <ul>
+                            <li><a href="index.html">Home</a>
+                            <li><a href="weight.html">Weight</a></li>
+                            <li><a href="VTotal.html">History Volatility</a></li>
+                            <li><a href="risk.html">Future Risk</a></li>
+                            <li><a href="correlation.html">Correlation</a></li>
+                        </ul>
+                    </nav>
+                </div>  
+            </div>
+		</div>
+
+		<div class="corr-main">
+            <div class="corr-left" style="text-align: center; width: 60%; margin: auto;">
+                <h3>Sectors Correlation Matrix</h3>
+                <img src="images/corr.png" style="width: 80%;">
+            </div>
+            <div class="corr-right">
+                <form action="cosector.php" method="post" name="corrsel">
+                    <fieldset class="corr" id="corr" name="corr">
+                        <h3>Sectors You Are Interested In</h3>
+                    	<br>
+                        <select name="sectora" required="required">
+                            <option value="">Please Select The Sector</option>
+                            <option value="infotech">Information Technology</option>
+                            <option value="healthcare">Health Care</option> 
+                            <option value="financials">Financials</option> 
+                            <option value="commsvc">Communication Service</option>
+                            <option value="consdiscret">Consumer Discretionary</option>
+                            <option value="industrials">Industrials</option>
+                            <option value="consstaples">Consumer Staples</option>
+                            <option value="energy">Energy</option>
+                            <option value="utilities">Utilities</option>
+                            <option value="realestate">Real Estate</option>
+                            <option value="materials">Materials</option>
+                        </select>
+
+                        <select name="sectorb" required="required">
+                            <option value="">Please Select The Sector</option>
+                            <option value="infotech">Information Technology</option>
+                            <option value="healthcare">Health Care</option> 
+                            <option value="financials">Financials</option> 
+                            <option value="commsvc">Communication Service</option>
+                            <option value="consdiscret">Consumer Discretionary</option>
+                            <option value="industrials">Industrials</option>
+                            <option value="consstaples">Consumer Staples</option>
+                            <option value="energy">Energy</option>
+                            <option value="utilities">Utilities</option>
+                            <option value="realestate">Real Estate</option>
+                            <option value="materials">Materials</option>
+                        </select>
+
+
+						<div class="corrreset">
+                            <input type="reset" value="Reset" name="corrreset">
+                        </div>
+                        <div class="corrsubmit">
+                            <input type="submit" value="Submit" name="corrsubmit"><br/>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+        <!--<div class="corr-left" style="text-align: center; width: 60%; margin: auto;">
+            <img src="images/corr.png" style="width: 80%;">
+        </div>-->
+		<footer id="copyright" align="center">&copy: 2019 Carey</footer>
+	</body>
+</html>

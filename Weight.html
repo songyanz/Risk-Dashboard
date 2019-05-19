@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Weight</title>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="incubator-echarts-4.2.1/dist/echarts.min.js"></script>
+	<script type="text/javascript" src="js/Turn.js"></script>
+	<link href="css/style.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+	<div class="banner">
+		<div class="banner1">
+			<a href="index.html"><img src="images/carey.png" alt="can't display" title="Carey Business School" width="430px" height="100px" ></a>
+		</div>
+		<div class="banner2">
+			<div style="height: 50px;"></div>
+			<div class="banner3">
+				<nav>
+					<ul>
+						<li><a href="index.html">Home</a>
+						<li><a href="weight.html">Weight</a></li>
+						<li><a href="VTotal.html">History Volatility</a></li>
+						<li><a href="risk.html">Future Risk</a></li>
+						<li><a href="correlation.html">Correlation</a></li>
+					</ul>
+				</nav>
+			</div>	
+		</div>
+	</div>
+	<br>
+	<!--<div style="text-align: center;">
+		<select onchange="Turnto(options[selectedIndex].value,'pie')">
+		<option value="1">04-11</option>
+		<option value="2">04-10</option>
+		<option value="3">04-09</option>
+		</select>
+	</div>-->
+	<br>
+	<div>
+		<div id="pie1" style="width: 80%; height:600px; margin: auto;"></div>
+		<script type="text/javascript">
+			var myChart = echarts.init(document.getElementById('pie1'));
+
+		    var option = {
+				title : {
+					text: 'Weight',
+					subtext: '4-11',
+					x:'center'
+				},
+
+				tooltip : {
+					trigger: 'item',
+					formatter: "{a} <br/>{b} : {c} ({d}%)"
+				},
+					
+				legend: {
+					orient: 'vertical',
+					left: 'left',
+					data: ['CONS DISCRET','ENERGY','HEALTH CARE','INFO TECH','COMM SVC','CONS STAPLES','FINANCIALS','INDUSTRIALS','MATERIALS','UTILITIES','REAL ESTATE']
+				},
+
+				series : [
+					{
+						name: 'Weight',
+		            	type: 'pie',
+		            	radius : '55%',
+		            	center: ['50%', '60%'],
+				        data:[
+				            {name:'CONS DISCRET',value:10.29,url:'VConsdiscret.html'},
+					        {name:'ENERGY',value:5.43,url:'VEnergy.html'},
+					        {name:'HEALTH CARE',value:14.13,url:'VHealthcare.html'},
+					        {name:'INFO TECH',value:21.43,url:'VInfotech.html'},
+					        {name:'COMM SVC',value:10.24,url:'VCommsvc.html'},
+					        {name:'CONS STAPLES',value:7.17,url:'VConsstaples.html'},
+					        {name:'FINANCIALS',value:12.87,url:'VFinancials.html'},
+					        {name:'INDUSTRIALS',value:9.45,url:'VIndustrials.html'},
+					        {name:'MATERIALS',value:2.68,url:'VMaterials.html'},
+					        {name:'UTILITIES',value:3.25,url:'VUtilities.html'},
+					        {name:'REAL ESTATE',value:3.06,url:'VRealestate.html'},
+				        ],
+
+						itemStyle: {
+				            emphasis: {
+				                shadowBlur: 10,
+				                shadowOffsetX: 0,
+				                shadowColor: 'rgba(0, 0, 0, 0.5)'
+				            }
+		            	}
+		        	}
+		    	]
+		    };
+
+		    myChart.setOption(option);
+		    myChart.on('click', function(param) {
+		    	var url = param.data.url;
+		    	window.location.href = url;
+			});
+		</script>
+
+		<!--<div id="pie2" style="width: 80%; height:600px; margin: auto;"></div>
+		<script type="text/javascript">
+		    var myChart = echarts.init(document.getElementById('pie2'));
+
+		    var option = {
+				title : {
+					text: 'Weight',
+					subtext: '4-10',
+					x:'center'
+				},
+
+				tooltip : {
+					trigger: 'item',
+					formatter: "{a} <br/>{b} : {c} ({d}%)"
+				},
+					
+				legend: {
+					orient: 'vertical',
+					left: 'left',
+					data: ['CONS DISCRET','ENERGY','HEALTH CARE','INFO TECH','COMM SVC','CONS STAPLES','FINANCIALS','INDUSTRIALS','MATERIALS','UTILITIES','REAL ESTATE']
+				},
+
+				series : [
+					{
+						name: 'Weight',
+		            	type: 'pie',
+		            	radius : '55%',
+		            	center: ['50%', '60%'],
+				        data:[
+				            {name:'CONS DISCRET',value:10.28,url:'VConsdiscret.html'},
+					        {name:'ENERGY',value:5.42,url:'VEnergy.html'},
+					        {name:'HEALTH CARE',value:14.30,url:'VHealthcare.html'},
+					        {name:'INFO TECH',value:21.46,url:'VInfotech.html'},
+					        {name:'COMM SVC',value:10.23,url:'VCommsvc.html'},
+					        {name:'CONS STAPLES',value:7.16,url:'VConsstaples.html'},
+					        {name:'FINANCIALS',value:12.80,url:'VFinancials.html'},
+					        {name:'INDUSTRIALS',value:9.37,url:'VIndustrials.html'},
+					        {name:'MATERIALS',value:2.68,url:'VMaterials.html'},
+					        {name:'UTILITIES',value:3.24,url:'VUtilities.html'},
+					        {name:'REAL ESTATE',value:3.06,url:'VRealestate.html'},
+				        ],
+
+						itemStyle: {
+				            emphasis: {
+				                shadowBlur: 10,
+				                shadowOffsetX: 0,
+				                shadowColor: 'rgba(0, 0, 0, 0.5)'
+				            }
+		            	}
+		        	}
+		    	]
+		    };
+
+		    myChart.setOption(option);
+		    myChart.on('click', function(param) {
+		    var url = param.data.url;
+		    window.location.href = url;
+			});
+		</script>
+
+	    <div id="pie3" style="width: 80%; height:600px; margin: auto; display: none;"></div>
+	    <script type="text/javascript">
+	        var myChart = echarts.init(document.getElementById('pie3'));
+
+	        var option = {
+				title : {
+					text: 'Weight',
+					subtext: '4-09',
+					x:'center'
+				},
+
+				tooltip : {
+					trigger: 'item',
+					formatter: "{a} <br/>{b} : {c} ({d}%)"
+				},
+				
+				legend: {
+					orient: 'vertical',
+					left: 'left',
+					data: ['CONS DISCRET','ENERGY','HEALTH CARE','INFO TECH','COMM SVC','CONS STAPLES','FINANCIALS','INDUSTRIALS','MATERIALS','UTILITIES','REAL ESTATE']
+				},
+
+				series : [
+					{
+						name: 'Weight',
+	            		type: 'pie',
+	            		radius : '55%',
+	            		center: ['50%', '60%'],
+			            data:[
+			                {name:'CONS DISCRET',value:10.26,url:'VConsdiscret.html'},
+				            {name:'ENERGY',value:5.42,url:'VEnergy.html'},
+				            {name:'HEALTH CARE',value:14.33,url:'VHealthcare.html'},
+				            {name:'INFO TECH',value:21.38,url:'VInfotech.html'},
+				            {name:'COMM SVC',value:10.23,url:'VCommsvc.html'},
+				            {name:'CONS STAPLES',value:7.16,url:'VConsstaples.html'},
+				            {name:'FINANCIALS',value:12.80,url:'VFinancials.html'},
+				            {name:'INDUSTRIALS',value:9.40,url:'VIndustrials.html'},
+				            {name:'MATERIALS',value:2.69,url:'VMaterials.html'},
+				            {name:'UTILITIES',value:3.26,url:'VUtilities.html'},
+				            {name:'REAL ESTATE',value:3.05,url:'VRealestate.html'},
+			        	],
+
+						itemStyle: {
+			                emphasis: {
+			                    shadowBlur: 10,
+			                    shadowOffsetX: 0,
+			                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+			                }
+	            		}
+	        		}
+	    		]
+	        };
+
+	        myChart.setOption(option);
+	        myChart.on('click', function(param) {
+	    		var url = param.data.url;
+	    		window.location.href = url;
+			});
+	    </script>
+	    <br>-->
+	</div>	
+	<br>
+</body>
+</html>
